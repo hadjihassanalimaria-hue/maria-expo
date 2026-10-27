@@ -1,0 +1,153 @@
+/* Styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    color: #2c3e50;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Conteneur de la présentation */
+.presentation {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Gestion du Diaporama (Masquer / Afficher) */
+.slide {
+    display: none; /* Cache toutes les diapos par défaut */
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    width: 100%;
+    animation: fadeIn 0.4s ease;
+}
+
+.slide.active {
+    display: block; /* Affiche uniquement la diapo active */
+}
+
+/* Titre de la diapo */
+.slide h2 {
+    color: #0078d4; /* Bleu Microsoft standard */
+    font-size: 2rem;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #f0f4f8;
+    padding-bottom: 10px;
+}
+
+/* Structure interne : Texte à gauche, Image à droite */
+.slide-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.text-side {
+    flex: 1;
+}
+
+.text-side p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.text-side strong {
+    color: #0078d4;
+}
+
+/* Gestion responsive des photos */
+.image-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image-side img {
+    max-width: 100%;
+    height: auto;
+    max-height: 350px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    object-fit: contain;
+}
+
+/* Barre de navigation fixe en bas */
+.navigation-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+    background: #ffffff;
+    padding: 15px 30px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    align-self: center;
+}
+
+.navigation-bar button {
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.navigation-bar button:hover {
+    background-color: #005a9e;
+}
+
+.navigation-bar button:active {
+    transform: scale(0.98);
+}
+
+#compteur {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Animation de transition */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* MODE RESPONSIVE (Téléphones et Tablettes) */
+@media (max-width: 768px) {
+    .slide-content {
+        flex-direction: column; /* Le texte passe au-dessus de l'image */
+        gap: 20px;
+    }
+    
+    .slide {
+        padding: 20px;
+    }
+
+    .slide h2 {
+        font-size: 1.5rem;
+    }
+}
+
+   
